@@ -38,6 +38,8 @@ module Crummy
     end
   end
 
+  autoload :BootstrapRenderer, 'crummy/bootstrap_renderer'
+
   if defined?(Rails::Railtie)
     require 'crummy/railtie'
   else
