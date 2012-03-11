@@ -3,7 +3,7 @@
 module Crummy
   class BootstrapRenderer
     include ActionView::Helpers::UrlHelper
-    include ActionView::Helpers::TagHelper unless self.included_modules.include?(ActionView::Helpers::TagHelper)
+    include Rails.application.routes.url_helpers
 
     # Render the list of crumbs as HTML compatible with the markup Twitter Bootstrap expects
     # http://twitter.github.com/bootstrap/components.html#breadcrumbs
@@ -54,6 +54,10 @@ module Crummy
     end
 
     private
+
+    def controller
+      ApplicationController
+    end
 
     def crumb_to_html_list(crumb, separator, links, li_class, active_li_class, first_class, last_class, is_first, is_last)
       name, url = crumb
