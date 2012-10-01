@@ -67,7 +67,7 @@ module Crummy
       html_classes << active_li_class unless url && links
       html_classes << li_class if !is_first && !is_last && url && links
       html_separator = content_tag(:span, separator, class: :divider)
-      content  = url && links ? link_to(name, url) : name
+      content  = url && links && (is_first || !is_last) ? link_to(name, url) : name
       content += html_separator unless is_last
       content_tag(:li, content.html_safe, :class => html_classes.join(' ').strip)
     end
