@@ -21,10 +21,11 @@ module Crummy
     attr_accessor :ul_class
     attr_accessor :li_class
     attr_accessor :active_li_class
+    attr_accessor :microdata
 
     def initialize
       @format = :html
-      @html_separator = " &raquo; "
+      @html_separator = " &raquo; ".html_safe
       @xml_separator = "crumb"
       @html_list_separator = ''
       @skip_if_blank = true
@@ -35,6 +36,7 @@ module Crummy
       @ul_class = ''
       @li_class = ''
       @active_li_class = ''
+      @microdata = false
     end
   end
 
